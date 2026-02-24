@@ -122,12 +122,31 @@ WHERE marka_id = 102 OR marka_id > 102  --marka_id>=102
 
 SELECT * FROM brands;
 
+UPDATE brands
+SET calisan_sayisi = calisan_sayisi + marka_id;
 
+UPDATE employees03
+SET isyeri = (SELECT isyeri FROM employees03 WHERE id = 567890123)
+WHERE  isim = 'Ali Seker';
 
+UPDATE employees03
+SET isyeri = (SELECT marka_isim FROM brands WHERE marka_id = 100)
+WHERE maas = 1500;
 
+--|| operatörü SQL de dizeleri birleştirmek için kullanılır. Java'daki (+) operatörü ile benzer işler görür.
 
+UPDATE employees03
+SET sehir = sehir || ' Subesi'
+WHERE isyeri = 'Vakko'
 
+UPDATE employees03
+SET sehir = CONCAT(sehir,' Subesi')
+WHERE isyeri = 'Vakko'
 
+SELECT * FROM employees03 WHERE isim IS NULL
 
+SELECT * FROM employees03 WHERE isim IS NOT NULL
 
-
+UPDATE employees03
+SET isim = 'isimsiz'
+WHERE isim IS NULL
