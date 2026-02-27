@@ -139,8 +139,73 @@ FROM personel
 GROUP BY sirket
 HAVING MIN(maas) > 4000;
 
+SELECT isim, SUM(maas)
+FROM personel
+GROUP BY isim
+HAVING SUM(maas) > 10000
 
 
+SELECT sehir, COUNT(id)
+FROM personel
+GROUP BY sehir
+HAVING COUNT(DISTINCT id) > 1;
+
+CREATE TABLE developers(
+id SERIAL PRIMARY KEY,
+name varchar(50),
+email varchar (50) UNIQUE,
+salary real,
+prog_lang varchar(20),
+city varchar (50),
+age int
+);
+
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Fevzi Kaya', 'fevzi@mail.com', 6000, 'Html', 'Istanbul', 28);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Enes Can', 'enes@mail.com', 5500, 'Css', 'Ankara', 28);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Tansu Han', 'tansu@mail.com', 5000, 'Java', 'Bursa', 32);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Said Ran', 'said@mail.com', 6000, 'Html', 'Izmir', 33);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Mustafa Pak', 'mustafa@mail.com', 4500, 'Css', 'Bursa', 32);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Hakan Tek', 'hakan@mail.com', 7000, 'C++', 'Konya', 38);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Zeyne Abacı', 'zeynep@mail.com', 7000, 'SQL', 'Muğla', 40);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Deniz Çetin', 'deniz@mail.com', 4000, 'C#', 'Istanbul', 30);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Betül Çetin', 'btl@mail.com', 4000, 'C#', 'Bursa', 29);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Ayse Gul', 'ayse@mail.com', 4000, 'C#', 'Ankara', 29);
+INSERT INTO developers(name,email,salary,prog_lang,city,age) VALUES 
+('Ali Seker', 'ali@mail.com', 4000, 'C#', 'Ankara', 29);
+
+UPDATE developers
+SET name = 'Zeynep Abacı'
+WHERE email = 'zeynep@mail.com';
+
+SELECT * FROM developers;
+
+CREATE TABLE contact_info(
+address_id int,
+street varchar (30),
+number int,
+city varchar(30),
+FOREIGN KEY (address_id) REFERENCES developers(id)
+)
+
+INSERT INTO contact_info VALUES(1,'Kaya Sokak',5,'Bursa');
+INSERT INTO contact_info VALUES(8,'Kaya Sokak',3,'Ankara');
+INSERT INTO contact_info VALUES(9,'Can Sokak',10,'Bursa');
+INSERT INTO contact_info VALUES(10,'Gül Sokak',12,'Ankara');
+INSERT INTO contact_info VALUES(11,'Can Sokak',4,'Afyon');
+INSERT INTO contact_info VALUES(12,'Taş Sokak',6,'Bolu');
+INSERT INTO contact_info VALUES(14,'Dev Sokak',6,'Sivas');
+INSERT INTO contact_info VALUES(15,'Dev Sokak',8,'Van');
+INSERT INTO contact_info VALUES(13,'Jet Sokak',7,'Kahramanmaras');
 
 
 
