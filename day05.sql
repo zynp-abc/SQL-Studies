@@ -207,6 +207,22 @@ INSERT INTO contact_info VALUES(14,'Dev Sokak',6,'Sivas');
 INSERT INTO contact_info VALUES(15,'Dev Sokak',8,'Van');
 INSERT INTO contact_info VALUES(13,'Jet Sokak',7,'Kahramanmaras');
 
+SELECT * FROM developers
+SELECT * FROM contact_info
+SELECT * FROM employees03 
+
+SELECT name FROM developers WHERE city = 'Ankara'
+UNION
+SELECT isim FROM employees03 WHERE sehir = 'Istanbul';
+
+SELECT name FROM developers 
+UNION ALL
+SELECT isim FROM employees03 
+
+SELECT name FROM developers WHERE age > 25
+UNION ALL
+SELECT prog_lang FROM developers WHERE age < 30 
+
 
 
 
