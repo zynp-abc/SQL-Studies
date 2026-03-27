@@ -93,11 +93,82 @@ ON p.yonetici_id = m.id
 
 SELECT * FROM developers
 
+SELECT * 
+FROM developers
+WHERE name LIKE 'A%'
 
+SELECT * 
+FROM developers
+WHERE name ILIKE 'A%'
 
+SELECT name, salary
+FROM developers
+WHERE name LIKE 'T%n'
 
+SELECT name, salary
+FROM developers
+WHERE name LIKE '%an%'
 
+SELECT *
+FROM developers
+WHERE name LIKE '%e%a%' OR name LIKE '%a%e%'
 
+SELECT *
+FROM developers
+WHERE name LIKE '%e%' AND name LIKE '%a%'
 
+SELECT *
+FROM developers
+WHERE name LIKE '_u%'
+
+SELECT *
+FROM developers
+WHERE prog_lang LIKE '__v_'
+
+SELECT 'cat' ~ '[cb]at' AS result
+
+SELECT '14' ~ '[0-9]' AS result
+
+SELECT 'm' ~ '[a-zA-Z]' AS result
+
+SELECT 'z' ~ '[^a-e]'
+
+SELECT 'helloo world' ~ '^hello'
+
+SELECT 'helloo world' ~ 'world$'
+
+SELECT '123abc456' ~ '.*abc'
+
+SELECT 'cat' ~ '.a.'
+
+--[a-ez] ==> a,b,c,d,e,z harflerini seçer
+
+CREATE TABLE words(
+word_id int UNIQUE,
+word varchar NOT NULL,
+number_of_letters int
+)
+
+INSERT INTO words VALUES (1001, 'hot', 3);
+INSERT INTO words VALUES (1002, 'hat', 3);
+INSERT INTO words VALUES (1003, 'Hit', 3);
+INSERT INTO words VALUES (1004, 'hbt', 3);
+INSERT INTO words VALUES (1005, 'hct', 3);
+INSERT INTO words VALUES (1006, 'adem', 4);
+INSERT INTO words VALUES (1007, 'selim', 6);
+INSERT INTO words VALUES (1008, 'yusuf', 5);
+INSERT INTO words VALUES (1009, 'hAt', 3);
+INSERT INTO words VALUES (1010, 'yaf', 5);
+INSERT INTO words VALUES (1011, 'ahata', 3);
+
+SELECT * FROM words
+
+SELECT * 
+FROM words
+WHERE word ~ 'h[ai]t'
+
+SELECT * 
+FROM words
+WHERE word ~* 'h[ai]t'
 
 
