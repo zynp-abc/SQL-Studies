@@ -54,6 +54,38 @@ INSERT INTO teachers VALUES (125, 'Zeynep', 'Abacı',40,'Mersin','SQL',7000);
 
 SELECT * FROM teachers
 
+SELECT UPPER (firstname), LENGTH(firstname), LOWER(lastname), LENGTH(lastname)
+FROM teachers
+
+UPDATE teachers
+SET firstname = TRIM (firstname), lastname = TRIM(lastname)
+
+SELECT INITCAP(firstname)
+FROM teachers
+
+SELECT * FROM teachers
+
+UPDATE teachers
+SET  firstname = REPLACE (firstname, 'Celal', 'Cemal')
+
+SELECT * FROM employees03
+
+SELECT SUBSTRING ('sqlders', 1, 3) -- 1 den başla 3 tane al
+
+UPDATE employees03
+SET sehir = SUBSTRING(sehir, 1, LENGTH(sehir) - 7)
+WHERE isyeri = 'Vakko'
+
+SELECT word, SUBSTRING(word,1,2)
+FROM words 
+
+
+
+
+
+
+
+
 
 
 
