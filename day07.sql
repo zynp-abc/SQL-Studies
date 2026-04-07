@@ -79,13 +79,79 @@ WHERE isyeri = 'Vakko'
 SELECT word, SUBSTRING(word,1,2)
 FROM words 
 
+SELECT * 
+FROM developers
+LIMIT 3
 
+SELECT *
+FROM developers
+FETCH NEXT 3 ROWS ONLY;
 
+SELECT * 
+FROM developers
+OFFSET 2 ROW   --ROW yazmak zorunlu değil
+LIMIT 3
 
+SELECT * 
+FROM developers
+ORDER BY salary
+LIMIT 3
 
+SELECT * 
+FROM developers
+ORDER BY salary DESC
+OFFSET 1
+LIMIT 1
 
+ALTER TABLE employees03
+ADD COLUMN yas INTEGER 
 
+SELECT * FROM employees03
 
+ALTER TABLE employees03
+ADD COLUMN remote BOOLEAN DEFAULT TRUE;
 
+ALTER TABLE employees03
+DROP COLUMN yas;
 
+ALTER TABLE employees03
+ALTER COLUMN maas TYPE real
+
+ALTER TABLE employees03
+RENAME COLUMN  maas TO gelir
+
+ALTER TABLE employees03
+RENAME TO employees05
+
+SELECT * FROM employees05
+
+ALTER TABLE employees05
+ALTER COLUMN id TYPE VARCHAR(20)
+
+ALTER TABLE employees05
+ALTER COLUMN id TYPE INTEGER USING id::INTEGER
+
+ALTER TABLE employees05
+ALTER  COLUMN  isim SET NOT NULL
+
+SELECT * FROM companies02
+
+ALTER TABLE companies02
+ADD PRIMARY KEY (sirket_id)
+
+ALTER TABLE companies02
+ADD UNIQUE (sirket_isim)
+
+ALTER TABLE orders
+ADD FOREIGN KEY (sirket_id) REFERENCES companies02(sirket_id)  --HATA verdi
+
+DELETE  FROM orders WHERE sirket_id IN (104,105)
+
+SELECT * FROM orders
+
+ALTER TABLE orders
+DROP CONSTRAINT  orders_sirket_id_fkey
+
+ALTER TABLE  employees05
+ALTER COLUMN isim DROP NOT NULL
 
